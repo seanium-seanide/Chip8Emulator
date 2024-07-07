@@ -13,17 +13,17 @@ LDFLAGS :=
 BIN := $(BINDIR)/$(PROJNAME)
 
 OBJ := $(BUILDDIR)/main.o
-OBJ += $(BUILDDIR)/Multimedia_Audio.o
+OBJ += $(BUILDDIR)/Chip8_System.o
 OBJ += $(BUILDDIR)/Chip8_Keypad.o
+OBJ += $(BUILDDIR)/Chip8_RegisterFile.o
 OBJ += $(BUILDDIR)/Chip8_Memory.o
+OBJ += $(BUILDDIR)/Chip8_MemoryRegion.o
+OBJ += $(BUILDDIR)/Chip8_SystemReserved.o
 OBJ += $(BUILDDIR)/Chip8_Cartridge.o
 OBJ += $(BUILDDIR)/Chip8_Framebuffer.o
-OBJ += $(BUILDDIR)/Chip8_MemoryRegion.o
-OBJ += $(BUILDDIR)/Chip8_System.o
-OBJ += $(BUILDDIR)/Chip8_RegisterFile.o
-OBJ += $(BUILDDIR)/Chip8_System.o
-OBJ += $(BUILDDIR)/Multimedia_Input.o
 OBJ += $(BUILDDIR)/Multimedia_Video.o
+OBJ += $(BUILDDIR)/Multimedia_Audio.o
+OBJ += $(BUILDDIR)/Multimedia_Input.o
 
 
 all: $(BIN)
@@ -36,7 +36,7 @@ $(BUILDDIR)/main.o: $(SRCDIR)/main.cpp Makefile
 	@mkdir -p $(BUILDDIR)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
-$(BUILDDIR)/Multimedia_Audio.o: $(SRCDIR)/Multimedia_Audio.cpp $(INCDIR)/Multimedia_Audio.hpp Makefile
+$(BUILDDIR)/Chip8_System.o: $(SRCDIR)/Chip8_System.cpp $(INCDIR)/Chip8_System.hpp Makefile
 	@mkdir -p $(BUILDDIR)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
@@ -44,15 +44,11 @@ $(BUILDDIR)/Chip8_Keypad.o: $(SRCDIR)/Chip8_Keypad.cpp $(INCDIR)/Chip8_Keypad.hp
 	@mkdir -p $(BUILDDIR)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
+$(BUILDDIR)/Chip8_RegisterFile.o: $(SRCDIR)/Chip8_RegisterFile.cpp $(INCDIR)/Chip8_RegisterFile.hpp Makefile
+	@mkdir -p $(BUILDDIR)
+	$(CC) -c $(CFLAGS) -o $@ $<
+
 $(BUILDDIR)/Chip8_Memory.o: $(SRCDIR)/Chip8_Memory.cpp $(INCDIR)/Chip8_Memory.hpp Makefile
-	@mkdir -p $(BUILDDIR)
-	$(CC) -c $(CFLAGS) -o $@ $<
-
-$(BUILDDIR)/Chip8_Cartridge.o: $(SRCDIR)/Chip8_Cartridge.cpp $(INCDIR)/Chip8_Cartridge.hpp Makefile
-	@mkdir -p $(BUILDDIR)
-	$(CC) -c $(CFLAGS) -o $@ $<
-
-$(BUILDDIR)/Chip8_Framebuffer.o: $(SRCDIR)/Chip8_Framebuffer.cpp $(INCDIR)/Chip8_Framebuffer.hpp Makefile
 	@mkdir -p $(BUILDDIR)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
@@ -60,23 +56,27 @@ $(BUILDDIR)/Chip8_MemoryRegion.o: $(SRCDIR)/Chip8_MemoryRegion.cpp $(INCDIR)/Chi
 	@mkdir -p $(BUILDDIR)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
-$(BUILDDIR)/Chip8_System.o: $(SRCDIR)/Chip8_System.cpp $(INCDIR)/Chip8_System.hpp Makefile
+$(BUILDDIR)/Chip8_SystemReserved.o: $(SRCDIR)/Chip8_SystemReserved.cpp $(INCDIR)/Chip8_SystemReserved.hpp $(INCDIR)/Chip8_MemoryRegion.hpp Makefile
 	@mkdir -p $(BUILDDIR)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
-$(BUILDDIR)/Chip8_RegisterFile.o: $(SRCDIR)/Chip8_RegisterFile.cpp $(INCDIR)/Chip8_RegisterFile.hpp Makefile
+$(BUILDDIR)/Chip8_Cartridge.o: $(SRCDIR)/Chip8_Cartridge.cpp $(INCDIR)/Chip8_Cartridge.hpp $(INCDIR)/Chip8_MemoryRegion.hpp Makefile
 	@mkdir -p $(BUILDDIR)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
-$(BUILDDIR)/Chip8_SystemReseved.o: $(SRCDIR)/Chip8_SystemReseved.cpp $(INCDIR)/Chip8_System.hpp Makefile
-	@mkdir -p $(BUILDDIR)
-	$(CC) -c $(CFLAGS) -o $@ $<
-
-$(BUILDDIR)/Multimedia_Input.o: $(SRCDIR)/Multimedia_Input.cpp $(INCDIR)/Multimedia_Input.hpp Makefile
+$(BUILDDIR)/Chip8_Framebuffer.o: $(SRCDIR)/Chip8_Framebuffer.cpp $(INCDIR)/Chip8_Framebuffer.hpp $(INCDIR)/Chip8_MemoryRegion.hpp Makefile
 	@mkdir -p $(BUILDDIR)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 $(BUILDDIR)/Multimedia_Video.o: $(SRCDIR)/Multimedia_Video.cpp $(INCDIR)/Multimedia_Video.hpp Makefile
+	@mkdir -p $(BUILDDIR)
+	$(CC) -c $(CFLAGS) -o $@ $<
+
+$(BUILDDIR)/Multimedia_Audio.o: $(SRCDIR)/Multimedia_Audio.cpp $(INCDIR)/Multimedia_Audio.hpp Makefile
+	@mkdir -p $(BUILDDIR)
+	$(CC) -c $(CFLAGS) -o $@ $<
+
+$(BUILDDIR)/Multimedia_Input.o: $(SRCDIR)/Multimedia_Input.cpp $(INCDIR)/Multimedia_Input.hpp Makefile
 	@mkdir -p $(BUILDDIR)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
@@ -87,6 +87,9 @@ clean:
 	rm -rf $(OBJ)
 	@if [ -e $(BINDIR) ]; then rmdir $(BINDIR); fi
 	@if [ -e $(BUILDDIR) ]; then rmdir $(BUILDDIR); fi
+
+.PHONY: clean-build
+clean-build: clean all
 
 .PHONY: run
 run:
