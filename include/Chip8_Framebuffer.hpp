@@ -1,5 +1,11 @@
 #pragma once
 
+/**
+ * @file Chip8_Framebuffer.hpp
+ *
+ * @brief
+ */
+
 
 #include "Chip8_MemoryRegion.hpp"
 

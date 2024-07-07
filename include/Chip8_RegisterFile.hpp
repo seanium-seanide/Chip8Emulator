@@ -1,5 +1,11 @@
 #pragma once
 
+/**
+ * @file Chip8_RegisterFile.hpp
+ *
+ * @brief
+ */
+
 
 namespace Chip8
 {
