@@ -1,9 +1,15 @@
 #include "Chip8_MemoryRegion.hpp"
 
-Chip8_MemoryRegion::Chip8_MemoryRegion()
+
+namespace Chip8
+{
+
+MemoryRegion::MemoryRegion()
 {
 }
 
-Chip8_MemoryRegion::~Chip8_MemoryRegion()
+MemoryRegion::~MemoryRegion()
 {
 }
+
+}   // namespace Chip8

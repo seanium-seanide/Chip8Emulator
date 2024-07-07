@@ -1,14 +1,20 @@
 #pragma once
 
-class Chip8_MemoryRegion
+
+namespace Chip8
+{
+
+class MemoryRegion
 {
 public:
 
-  Chip8_MemoryRegion();
-  ~Chip8_MemoryRegion();
+  MemoryRegion();
+  ~MemoryRegion();
 
 protected:
 
 private:
 
-};
+};  // class MemoryRegion
+
+}   // namespace Chip8

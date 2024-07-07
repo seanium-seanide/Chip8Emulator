@@ -1,14 +1,20 @@
 #pragma once
 
-class Chip8_RegisterFile
+
+namespace Chip8
+{
+
+class Registerfile
 {
 public:
 
-  Chip8_RegisterFile();
-  ~Chip8_RegisterFile();
+  Registerfile();
+  ~Registerfile();
 
 protected:
 
 private:
 
-};
+};  // class RegisterFile
+
+}   // namesapce Chip8

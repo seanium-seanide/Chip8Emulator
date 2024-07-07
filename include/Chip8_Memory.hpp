@@ -1,14 +1,20 @@
 #pragma once
 
-class Chip8_Memory
+
+namespace Chip8
+{
+
+class Memory
 {
 public:
 
-  Chip8_Memory();
-  ~Chip8_Memory();
+  Memory();
+  ~Memory();
 
 protected:
 
 private:
 
-};
+};  // class Memory
+
+}   // namespace Chip8

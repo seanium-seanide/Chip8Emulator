@@ -1,9 +1,15 @@
 #include "Chip8_System.hpp"
 
-Chip8_System::Chip8_System()
+
+namespace Chip8
+{
+
+System::System()
 {
 }
 
-Chip8_System::~Chip8_System()
+System::~System()
 {
 }
+
+}   // namespace Chip8

@@ -1,9 +1,15 @@
 #include "Chip8_Keypad.hpp"
 
-Chip8_Keypad::Chip8_Keypad()
+
+namespace Chip8
+{
+
+Keypad::Keypad()
 {
 }
 
-Chip8_Keypad::~Chip8_Keypad()
+Keypad::~Keypad()
 {
 }
+
+}   // namespace Chip8

@@ -1,9 +1,15 @@
 #include "Chip8_RegisterFile.hpp"
 
-Chip8_RegisterFile::Chip8_RegisterFile()
+
+namespace Chip8
+{
+
+Registerfile::Registerfile()
 {
 }
 
-Chip8_RegisterFile::~Chip8_RegisterFile()
+Registerfile::~Registerfile()
 {
 }
+
+}   // namesapce Chip8

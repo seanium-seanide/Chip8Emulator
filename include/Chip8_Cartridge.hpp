@@ -4,17 +4,17 @@
 namespace Chip8
 {
 
-class System
+class Cartridge
 {
 public:
 
-  System();
-  ~System();
+  Cartridge();
+  ~Cartridge();
 
 protected:
 
 private:
 
-};  // class System
+};  // class Cartridge
 
 }   // namespace Chip8

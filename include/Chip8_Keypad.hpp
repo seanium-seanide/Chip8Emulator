@@ -1,14 +1,20 @@
 #pragma once
 
-class Chip8_Keypad
+
+namespace Chip8
+{
+
+class Keypad
 {
 public:
 
-  Chip8_Keypad();
-  ~Chip8_Keypad();
+  Keypad();
+  ~Keypad();
 
 protected:
 
 private:
 
-};
+};  // class Keypad
+
+}   // namespace Chip8

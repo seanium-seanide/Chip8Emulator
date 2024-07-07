@@ -1,9 +1,15 @@
 #include "Chip8_Memory.hpp"
 
-Chip8_Memory::Chip8_Memory()
+
+namespace Chip8
+{
+
+Memory::Memory()
 {
 }
 
-Chip8_Memory::~Chip8_Memory()
+Memory::~Memory()
 {
 }
+
+}   // namespace Chip8
