@@ -7,6 +7,9 @@
  */
 
 
+#include <cstdint>
+
+
 namespace Chip8
 {
 
@@ -14,12 +17,13 @@ class MemoryRegion
 {
 public:
 
-  MemoryRegion();
+  MemoryRegion(std::size_t minIndex, std::size_t maxIndex);
   ~MemoryRegion();
 
-protected:
-
 private:
+
+  std::size_t m_minIndex;
+  std::size_t m_maxIndex;
 
 };  // class MemoryRegion
 

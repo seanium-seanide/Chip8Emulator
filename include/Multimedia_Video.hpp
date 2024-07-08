@@ -17,8 +17,6 @@ public:
   Video();
   ~Video();
 
-protected:
-
 private:
 
 };  // class Video

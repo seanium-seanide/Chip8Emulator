@@ -7,20 +7,18 @@
  */
 
 
-#include "Chip8_MemoryRegion.hpp"
+#include <cstdint>
 
 
 namespace Chip8
 {
 
-class Framebuffer: public MemoryRegion
+class Framebuffer
 {
 public:
 
   Framebuffer();
   ~Framebuffer();
-
-protected:
 
 private:
 

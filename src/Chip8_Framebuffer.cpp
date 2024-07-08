@@ -1,10 +1,10 @@
-#include "Chip8_Framebuffer.hpp"
-
 /**
  * @file Chip8_Framebuffer.cpp
  *
  * @brief
  */
+
+#include "Chip8_Framebuffer.hpp"
 
 
 namespace Chip8

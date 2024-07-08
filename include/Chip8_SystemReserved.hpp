@@ -9,6 +9,8 @@
 
 #include "Chip8_MemoryRegion.hpp"
 
+#include <cstdint>
+
 
 namespace Chip8
 {
@@ -17,10 +19,8 @@ class SystemReserved: public MemoryRegion
 {
 public:
 
-  SystemReserved();
+  SystemReserved(std::size_t minIndex, std::size_t maxIndex);
   ~SystemReserved();
-
-protected:
 
 private:
 

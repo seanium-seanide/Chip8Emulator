@@ -10,7 +10,8 @@
 namespace Chip8
 {
 
-Cartridge::Cartridge()
+Cartridge::Cartridge(std::size_t minIndex, std::size_t maxIndex)
+: MemoryRegion(minIndex, maxIndex)
 {
 }
 

@@ -17,8 +17,6 @@ public:
   Input();
   ~Input();
 
-protected:
-
 private:
 
 };  // class Input

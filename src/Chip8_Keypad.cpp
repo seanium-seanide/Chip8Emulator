@@ -1,10 +1,10 @@
-#include "Chip8_Keypad.hpp"
-
 /**
  * @file Chip8_Keypad.cpp
  *
  * @brief
  */
+
+#include "Chip8_Keypad.hpp"
 
 
 namespace Chip8

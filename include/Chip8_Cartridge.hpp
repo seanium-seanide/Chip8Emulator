@@ -7,17 +7,20 @@
  */
 
 
+#include "Chip8_MemoryRegion.hpp"
+
+#include <cstdint>
+
+
 namespace Chip8
 {
 
-class Cartridge
+class Cartridge: public MemoryRegion
 {
 public:
 
-  Cartridge();
+  Cartridge(std::size_t minIndex, std::size_t maxIndex);
   ~Cartridge();
-
-protected:
 
 private:
 

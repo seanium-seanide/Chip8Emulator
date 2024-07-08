@@ -17,8 +17,6 @@ public:
   Audio();
   ~Audio();
 
-protected:
-
 private:
 
 };  // class Audio

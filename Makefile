@@ -36,7 +36,7 @@ $(BUILDDIR)/main.o: $(SRCDIR)/main.cpp Makefile
 	@mkdir -p $(BUILDDIR)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
-$(BUILDDIR)/Chip8_System.o: $(SRCDIR)/Chip8_System.cpp $(INCDIR)/Chip8_System.hpp Makefile
+$(BUILDDIR)/Chip8_System.o: $(SRCDIR)/Chip8_System.cpp $(INCDIR)/Chip8_System.hpp $(INCDIR)/Chip8_RegisterFile.hpp $(INCDIR)/Chip8_Memory.hpp $(INCDIR)/Chip8_SystemReserved.hpp $(INCDIR)/Chip8_Cartridge.hpp $(INCDIR)/Chip8_Framebuffer.hpp Makefile
 	@mkdir -p $(BUILDDIR)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
@@ -64,7 +64,7 @@ $(BUILDDIR)/Chip8_Cartridge.o: $(SRCDIR)/Chip8_Cartridge.cpp $(INCDIR)/Chip8_Car
 	@mkdir -p $(BUILDDIR)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
-$(BUILDDIR)/Chip8_Framebuffer.o: $(SRCDIR)/Chip8_Framebuffer.cpp $(INCDIR)/Chip8_Framebuffer.hpp $(INCDIR)/Chip8_MemoryRegion.hpp Makefile
+$(BUILDDIR)/Chip8_Framebuffer.o: $(SRCDIR)/Chip8_Framebuffer.cpp $(INCDIR)/Chip8_Framebuffer.hpp Makefile
 	@mkdir -p $(BUILDDIR)
 	$(CC) -c $(CFLAGS) -o $@ $<
 

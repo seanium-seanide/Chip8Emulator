@@ -1,24 +1,23 @@
 #pragma once
 
 /**
- * @file Chip8_Keypad.hpp
+ * @file Chip8_Stack.hpp
  *
  * @brief
  */
 
-
 namespace Chip8
 {
 
-class Keypad
+class Stack
 {
 public:
 
-  Keypad();
-  ~Keypad();
+  Stack();
+  ~Stack();
 
 private:
 
-};  // class Keypad
+};  // class Stack
 
 }   // namespace Chip8
