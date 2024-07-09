@@ -14,5 +14,8 @@ int main(int argc, char **argv)
 {
   Chip8::System system;
 
+  system.init();
+  system.mainLoop();
+
   return 0;
 }

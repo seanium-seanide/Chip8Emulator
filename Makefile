@@ -1,3 +1,5 @@
+# TODO: Write a tool to generate this Makefile (or stop being stubborn and use cmake, lmao)
+
 PROJNAME := Chip8Emulator
 BINDIR := bin
 BUILDDIR := build
@@ -8,7 +10,7 @@ INCPATH := $(INCDIR)
 
 CC := clang++
 CFLAGS := -Wall -std=c++17 -I$(INCPATH)
-LDFLAGS :=
+LDFLAGS := -lSDL2
 
 BIN := $(BINDIR)/$(PROJNAME)
 
@@ -24,6 +26,7 @@ OBJ += $(BUILDDIR)/Chip8_Framebuffer.o
 OBJ += $(BUILDDIR)/Multimedia_Video.o
 OBJ += $(BUILDDIR)/Multimedia_Audio.o
 OBJ += $(BUILDDIR)/Multimedia_Input.o
+OBJ += $(BUILDDIR)/Multimedia_utils.o
 
 
 all: $(BIN)
@@ -36,7 +39,7 @@ $(BUILDDIR)/main.o: $(SRCDIR)/main.cpp Makefile
 	@mkdir -p $(BUILDDIR)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
-$(BUILDDIR)/Chip8_System.o: $(SRCDIR)/Chip8_System.cpp $(INCDIR)/Chip8_System.hpp $(INCDIR)/Chip8_RegisterFile.hpp $(INCDIR)/Chip8_Memory.hpp $(INCDIR)/Chip8_SystemReserved.hpp $(INCDIR)/Chip8_Cartridge.hpp $(INCDIR)/Chip8_Framebuffer.hpp Makefile
+$(BUILDDIR)/Chip8_System.o: $(SRCDIR)/Chip8_System.cpp $(INCDIR)/Chip8_System.hpp $(INCDIR)/Chip8_RegisterFile.hpp $(INCDIR)/Chip8_Memory.hpp $(INCDIR)/Chip8_SystemReserved.hpp $(INCDIR)/Chip8_Cartridge.hpp $(INCDIR)/Chip8_Framebuffer.hpp $(INCDIR)/Multimedia_Video.hpp $(INCDIR)/Chip8_config.hpp Makefile
 	@mkdir -p $(BUILDDIR)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
@@ -76,7 +79,11 @@ $(BUILDDIR)/Multimedia_Audio.o: $(SRCDIR)/Multimedia_Audio.cpp $(INCDIR)/Multime
 	@mkdir -p $(BUILDDIR)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
-$(BUILDDIR)/Multimedia_Input.o: $(SRCDIR)/Multimedia_Input.cpp $(INCDIR)/Multimedia_Input.hpp Makefile
+$(BUILDDIR)/Multimedia_Input.o: $(SRCDIR)/Multimedia_Input.cpp $(INCDIR)/Multimedia_Input.hpp $(INCDIR)/Input_config.hpp Makefile
+	@mkdir -p $(BUILDDIR)
+	$(CC) -c $(CFLAGS) -o $@ $<
+
+$(BUILDDIR)/Multimedia_utils.o: $(SRCDIR)/Multimedia_utils.cpp $(INCDIR)/Multimedia_utils.hpp $(INCDIR)/Multimedia_config.hpp Makefile
 	@mkdir -p $(BUILDDIR)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
