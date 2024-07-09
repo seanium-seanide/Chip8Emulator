@@ -67,7 +67,7 @@ $(BUILDDIR)/Chip8_Cartridge.o: $(SRCDIR)/Chip8_Cartridge.cpp $(INCDIR)/Chip8_Car
 	@mkdir -p $(BUILDDIR)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
-$(BUILDDIR)/Chip8_Framebuffer.o: $(SRCDIR)/Chip8_Framebuffer.cpp $(INCDIR)/Chip8_Framebuffer.hpp Makefile
+$(BUILDDIR)/Chip8_Framebuffer.o: $(SRCDIR)/Chip8_Framebuffer.cpp $(INCDIR)/Chip8_Framebuffer.hpp $(INCDIR)/Multimedia_Video.hpp Makefile
 	@mkdir -p $(BUILDDIR)
 	$(CC) -c $(CFLAGS) -o $@ $<
 

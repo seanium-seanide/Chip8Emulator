@@ -43,6 +43,7 @@ public:
    */
   void mainLoop();
 
+  // TODO: Move input to kepyad
   /**
    * @brief
    */
@@ -52,12 +53,6 @@ public:
    * @brief
    */
   void updateState();
-
-  // TODO: Move rendering to framebuffer
-  /**
-   * @brief
-   */
-  void renderFramebuffer();
 
 private:
 
@@ -69,7 +64,7 @@ private:
   Cartridge       m_cartridge;
   Framebuffer     m_framebuffer;
 
-  Multimedia::Video m_video;
+  //Multimedia::Video m_video;
   Multimedia::Input m_input;
 
 };  // class System
