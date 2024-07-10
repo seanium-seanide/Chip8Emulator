@@ -6,6 +6,8 @@
 
 #include "Chip8_MemoryRegion.hpp"
 
+#include <cstdint>
+
 
 namespace Chip8
 {
@@ -29,6 +31,12 @@ std::size_t MemoryRegion::getMinIndex()
 std::size_t MemoryRegion::getMaxIndex()
 {
   return m_maxIndex;
+}
+
+
+void MemoryRegion::storeBlock(std::size_t regionStart, uint8_t *blockStart, std::size_t blockSize)
+{
+  //std::memcpy(destination, start, size);
 }
 
 }   // namespace Chip8

@@ -21,10 +21,25 @@ public:
   ~MemoryRegion();
 
 
+  /**
+   * @brief
+   */
   std::size_t getMinIndex();
+
+  /**
+   * @brief
+   */
   std::size_t getMaxIndex();
 
+
+  /**
+   * @brief
+   */
+  void storeBlock(std::size_t regionStart, uint8_t *blockStart, std::size_t blockSize);
+
 private:
+
+  // TODO: Friend function for Chip8::Memory to pass pointer to base address
 
   std::size_t m_minIndex;
   std::size_t m_maxIndex;
