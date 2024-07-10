@@ -2,3 +2,4 @@
 *.vim
 bin/
 build/
+sandbox/

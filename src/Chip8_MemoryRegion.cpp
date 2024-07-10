@@ -14,12 +14,21 @@ MemoryRegion::MemoryRegion(std::size_t minIndex, std::size_t maxIndex)
 : m_minIndex(minIndex)
 , m_maxIndex(maxIndex)
 {
-  static_cast<void>(m_minIndex);
-  static_cast<void>(m_maxIndex);
 }
 
 MemoryRegion::~MemoryRegion()
 {
+}
+
+
+std::size_t MemoryRegion::getMinIndex()
+{
+  return m_minIndex;
+}
+
+std::size_t MemoryRegion::getMaxIndex()
+{
+  return m_maxIndex;
 }
 
 }   // namespace Chip8

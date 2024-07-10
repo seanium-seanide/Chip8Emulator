@@ -11,7 +11,7 @@
 
 #include <SDL2/SDL.h>
 
-#include "Input_config.hpp"
+#include "Multimedia_config.hpp"
 
 
 namespace Multimedia

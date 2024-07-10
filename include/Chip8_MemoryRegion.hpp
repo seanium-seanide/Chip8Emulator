@@ -20,6 +20,10 @@ public:
   MemoryRegion(std::size_t minIndex, std::size_t maxIndex);
   ~MemoryRegion();
 
+
+  std::size_t getMinIndex();
+  std::size_t getMaxIndex();
+
 private:
 
   std::size_t m_minIndex;

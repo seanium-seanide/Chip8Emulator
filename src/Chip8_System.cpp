@@ -4,8 +4,6 @@
  * @brief
  */
 
-// TODO: Remove commented lines due to rendering refactor
-
 #include "Chip8_System.hpp"
 #include "Chip8_config.hpp"
 
@@ -22,7 +20,8 @@ System::System()
 , m_systemReserved(0x0000, 0x01FF)
 , m_cartridge(0x0200,0xFFF)
 , m_framebuffer()
-, m_input()
+, m_keypad()
+//, m_input()
 {
 }
 
@@ -49,23 +48,20 @@ void System::mainLoop()
 {
   while (m_running)
   {
-    getInput();
-    updateState();
+    m_keypad.update();
+    if (m_keypad.userQuit())
+    {
+      m_running = false;
+    }
+
+    update();
+
     m_framebuffer.render();
   }
 }
 
-void System::getInput()
-{
-  m_input.update();
 
-  if (m_input.quitPressed() || m_input.keyPressed(Multimedia::KEY_ESCAPE))
-  {
-    m_running = false;
-  }
-}
-
-void System::updateState()
+void System::update()
 {
 }
 

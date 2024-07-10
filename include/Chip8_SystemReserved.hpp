@@ -8,6 +8,7 @@
 
 
 #include "Chip8_MemoryRegion.hpp"
+#include "Chip8_config.hpp"
 
 #include <cstdint>
 

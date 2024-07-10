@@ -12,9 +12,9 @@
 #include "Chip8_SystemReserved.hpp"
 #include "Chip8_Cartridge.hpp"
 #include "Chip8_Framebuffer.hpp"
+#include "Chip8_Keypad.hpp"
 
-#include "Multimedia_Video.hpp"
-#include "Multimedia_Input.hpp"
+//#include "Multimedia_Input.hpp"
 
 namespace Chip8
 {
@@ -43,26 +43,21 @@ public:
    */
   void mainLoop();
 
-  // TODO: Move input to kepyad
   /**
    * @brief
    */
-  void getInput();
-
-  /**
-   * @brief
-   */
-  void updateState();
+  void update();
 
 private:
 
   bool m_running;
 
-  RegisterFile    m_registers;
-  Memory          m_memory;
-  SystemReserved  m_systemReserved;
-  Cartridge       m_cartridge;
-  Framebuffer     m_framebuffer;
+  RegisterFile        m_registers;
+  Memory<MEMORY_SIZE> m_memory;
+  SystemReserved      m_systemReserved;
+  Cartridge           m_cartridge;
+  Framebuffer         m_framebuffer;
+  Keypad              m_keypad;
 
   //Multimedia::Video m_video;
   Multimedia::Input m_input;

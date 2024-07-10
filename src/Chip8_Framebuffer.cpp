@@ -18,6 +18,7 @@ Framebuffer::Framebuffer()
 
 Framebuffer::~Framebuffer()
 {
+  quit();
 }
 
 
@@ -33,7 +34,6 @@ void Framebuffer::quit()
 
 void Framebuffer::render()
 {
-  // TODO: Replace with emulator drawing logic. Test code below.
   m_video.drawRect(
     Multimedia::Vector2D(0, 0)
     , Multimedia::Vector2D(WINDOW_PIXEL_SIZE, WINDOW_PIXEL_SIZE)
